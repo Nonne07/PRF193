@@ -1,6 +1,6 @@
 #include "Developer.h"
 #include <sstream>
-
+#include "iomanip"
 Developer::Developer() {}
 
 Developer::Developer(string id, string n, int by, string lang, double sal) {
@@ -31,11 +31,13 @@ void Developer::input() {
 }
 
 void Developer::display() {
-    cout << devID << " | "
-         << name << " | "
-         << birthYear << " | "
-         << languages << " | "
-         << salary << endl;
+    cout << left
+         << setw(10) << devID
+         << setw(20) << name
+         << setw(10) << birthYear
+         << setw(20) << languages
+         << setw(10) << salary
+         << endl;
 }
 
 string Developer::toString() {
@@ -46,4 +48,5 @@ string Developer::toString() {
        << languages << ","
        << salary;
     return ss.str();
+
 }
