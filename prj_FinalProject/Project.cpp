@@ -1,6 +1,6 @@
 #include "Project.h"
 #include <sstream>
-
+#include "iomanip"
 Project::Project() {}
 
 Project::Project(string pid, string did, string n, int d, string sd) {
@@ -30,11 +30,12 @@ void Project::input() {
 }
 
 void Project::display() {
-    cout << projectID << " | "
-         << devID << " | "
-         << name << " | "
-         << duration << " | "
-         << startDate << endl;
+    cout << left
+         << setw(10) << projectID
+         << setw(10) << devID
+         << setw(20) << name 
+         << setw(10) << duration 
+         << setw(10) << startDate << endl;
 }
 
 string Project::toString() {
