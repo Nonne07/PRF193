@@ -1,18 +1,18 @@
 # Project: FinalProject
 # Makefile created by Embarcadero Dev-C++ 6.3
 
-CPP      = g++.exe
-CC       = gcc.exe
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o Developer.o Project.o FileManager.o DeveloperManager.o ProjectManager.o
-LINKOBJ  = main.o Developer.o Project.o FileManager.o DeveloperManager.o ProjectManager.o
-LIBS     = -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
-INCS     = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
-CXXINCS  = -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Program Files (x86)/Embarcadero/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+OBJ      = main.o Validator.o Project.o Developer.o Filemanager.o Developermanager.o Projectmanager.o
+LINKOBJ  = main.o Validator.o Project.o Developer.o Filemanager.o Developermanager.o Projectmanager.o
+LIBS     = -L"E:/Dev-Cpp/TDM-GCC-64/lib" -L"E:/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"E:/Dev-Cpp/TDM-GCC-64/include" -I"E:/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"E:/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"E:/Dev-Cpp/TDM-GCC-64/include" -I"E:/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"E:/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"E:/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
 BIN      = FinalProject.exe
-CXXFLAGS = $(CXXINCS) 
-CFLAGS   = $(INCS) 
-DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\devcpp.exe INTERNAL_DEL
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+DEL      = E:\Dev-Cpp\DevCpp.exe INTERNAL_DEL
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -27,17 +27,20 @@ $(BIN): $(OBJ)
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
 
-Developer.o: Developer.cpp
-	$(CPP) -c Developer.cpp -o Developer.o $(CXXFLAGS)
+Validator.o: Validator.cpp
+	$(CPP) -c Validator.cpp -o Validator.o $(CXXFLAGS)
 
 Project.o: Project.cpp
 	$(CPP) -c Project.cpp -o Project.o $(CXXFLAGS)
 
-FileManager.o: FileManager.cpp
-	$(CPP) -c FileManager.cpp -o FileManager.o $(CXXFLAGS)
+Developer.o: Developer.cpp
+	$(CPP) -c Developer.cpp -o Developer.o $(CXXFLAGS)
 
-DeveloperManager.o: DeveloperManager.cpp
-	$(CPP) -c DeveloperManager.cpp -o DeveloperManager.o $(CXXFLAGS)
+Filemanager.o: Filemanager.cpp
+	$(CPP) -c Filemanager.cpp -o Filemanager.o $(CXXFLAGS)
 
-ProjectManager.o: ProjectManager.cpp
-	$(CPP) -c ProjectManager.cpp -o ProjectManager.o $(CXXFLAGS)
+Developermanager.o: Developermanager.cpp
+	$(CPP) -c Developermanager.cpp -o Developermanager.o $(CXXFLAGS)
+
+Projectmanager.o: Projectmanager.cpp
+	$(CPP) -c Projectmanager.cpp -o Projectmanager.o $(CXXFLAGS)

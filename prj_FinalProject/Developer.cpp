@@ -1,5 +1,6 @@
 #include "Developer.h"
 #include <sstream>
+#include <iomanip>
 
 Developer::Developer() {}
 
@@ -30,12 +31,29 @@ void Developer::input() {
     cin >> salary;
 }
 
+string formatSalary(double salary) {
+    string s = to_string((long long)salary);
+    string result = "";
+    int count = 0;
+
+    for (int i = s.length() - 1; i >= 0; i--) {
+        result = s[i] + result;
+        count++;
+        if (count == 3 && i != 0) {
+            result = "." + result;
+            count = 0;
+        }
+    }
+    return result;
+}
+
 void Developer::display() {
-    cout << devID << " | "
-         << name << " | "
-         << birthYear << " | "
-         << languages << " | "
-         << salary << endl;
+    cout << left
+         << setw(10) << devID
+         << setw(20) << name
+         << setw(10) << birthYear
+         << setw(20) << languages
+         << setw(10) << formatSalary(salary) << endl;
 }
 
 string Developer::toString() {

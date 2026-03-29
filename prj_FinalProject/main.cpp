@@ -2,6 +2,7 @@
 #include "DeveloperManager.h"
 #include "ProjectManager.h"
 #include "FileManager.h"
+
 using namespace std;
 
 void menu() {
@@ -19,12 +20,12 @@ void menu() {
 }
 
 int main() {
-
     DeveloperManager dm;
     ProjectManager pm;
-    
-    FileManager::loadDevelopers(dm.getList());
-	FileManager::loadProjects(pm.getList());
+    FileManager fm;
+
+    fm.loadDevelopers(dm.getList());
+    fm.loadProjects(pm.getList());
 
     int choice;
 
@@ -34,55 +35,26 @@ int main() {
         cin >> choice;
 
         try {
-
             switch(choice) {
-
-            case 1:
-                dm.addDev();
-                break;
-
-            case 2:
-                dm.removeDev(pm);
-                break;
-
-            case 3:
-                dm.searchDev();
-                break;
-
-            case 4:
-                dm.updateSalary();
-                break;
-
-            case 5:
-                dm.sortDev();
-                break;
-
-            case 6:
-                pm.assignProject(dm);
-                break;
-
-            case 7:
-                pm.totalExperience();
-                break;
-
-            case 8:
-                pm.groupProject();
-                break;
-
-            case 9:
-                dm.displayAll();
-                break;
+            case 1: dm.addDev();          break;
+            case 2: dm.removeDev(pm);     break;
+            case 3: dm.searchDev();       break;
+            case 4: dm.updateSalary();    break;
+            case 5: dm.sortDev();         break;
+            case 6: pm.assignProject(dm); break;
+            case 7: pm.totalExperience(); break;
+            case 8: pm.groupProject();    break;
+            case 9: dm.displayAll();      break;
             }
-
         }
         catch(exception &e) {
             cout << "Error: " << e.what() << endl;
         }
 
     } while(choice != 0);
-    
-    FileManager::saveDevelopers(dm.getList());
-	FileManager::saveProjects(pm.getList());
-    
-	return 0;
+
+    fm.saveDevelopers(dm.getList());
+    fm.saveProjects(pm.getList());
+
+    return 0;
 }

@@ -17,24 +17,21 @@ public:
     Developer();
     Developer(string, string, int, string, double);
 
-//Getters
-    string getDevID()     const;
-    string getName()      const;
-    int    getBirthYear() const;
-    string getLanguages() const;
-    double getSalary()    const;
+    string getDevID()     const { return devID; }
+    string getName()      const { return name; }
+    int    getBirthYear() const { return birthYear; }
+    string getLanguages() const { return languages; }
+    double getSalary()    const { return salary; }
 
-//Setters
-    void setDevID    (string devID);
-    void setName     (string name);
-    void setBirthYear(int birthYear);
-    void setLanguages(string languages);
-    void setSalary   (double salary);
+    void setDevID(string id)       { devID = id; }
+    void setName(string n)         { name = n; }
+    void setBirthYear(int by)      { birthYear = by; }
+    void setLanguages(string lang) { languages = lang; }
+    void setSalary(double sal)     { salary = sal; }
 
     void input();
     void display();
     string toString();
 };
-
 
 #endif
