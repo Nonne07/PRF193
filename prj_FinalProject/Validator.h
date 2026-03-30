@@ -1,17 +1,22 @@
+#pragma once
+#include <string>
+
+using namespace std;
+
 class Validator {
 private:
-    bool isNumber(const std::string& s); // only used internally by other validators
+    bool isNumber(const string& s);
 
 public:
-    bool isValidDevID(const std::string& id);
-    bool isValidProjectID(const std::string& id);
+    bool isValidDevID(const string& id);
+    bool isValidProjectID(const string& id);
 
-    bool isValidName(const std::string& name);
-    bool isValidBirthYearFormat(const std::string& yearStr);
+    bool isValidName(const string& name);
+    bool isValidBirthYearFormat(const string& yearStr);
     bool isValidBirthYear(int year);
     bool isValidSalary(double salary);
-    bool isValidLanguages(const std::string& lang);
+    bool isValidLanguages(const string& lang);
 
     bool isValidDuration(int duration);
-    bool isValidStartDate(const std::string& date);
+    bool isValidStartDate(const string& date);
 };
